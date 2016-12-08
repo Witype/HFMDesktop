@@ -1,0 +1,44 @@
+.primary {
+    -fx-background-color: #F4645F;
+}
+
+.primary_text {
+    -fx-background-color: #212121;
+}
+
+.secondary_text {
+    -fx-text-fill: #757575;
+}
+
+.textTitle {
+    -fx-font-size: 24pt;
+}
+
+.textSubTitle {
+    -fx-font-size: 22pt;
+}
+
+.textContent {
+    -fx-font-size: 14pt;
+}
+
+.textSecondary {
+    -fx-font-size: 12pt;
+}
+
+.window_background {
+    -fx-background-color: #F7F7F7;
+}
+
+.infoContentLayout {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E6E6E6;
+    -fx-border-radius: 2px;
+    -fx-border-width: 1px;
+}
+
+.divider {
+    -fx-background-color: #E6E6E6;
+}
+
+

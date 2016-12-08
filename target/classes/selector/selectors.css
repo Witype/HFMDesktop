@@ -1,0 +1,19 @@
+.selectable_background_black:hover {
+    -fx-background-color: #C3504C;
+}
+
+.selectable_background_black:pressed {
+    -fx-background-color: #AA4642;
+}
+
+.selectable_text_gray {
+    -fx-text-fill: #757575;
+}
+
+.selectable_text_gray:hover {
+    -fx-text-fill: #F4645F;
+}
+
+.selectable_text_gray:pressed {
+    -fx-text-fill: #F4645F;
+}
