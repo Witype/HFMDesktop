@@ -1,0 +1,15 @@
+.loginBackground {
+    -fx-border-color: #E6E6E6;
+    -fx-border-radius: 4px;
+}
+
+.login_input {
+    -fx-border-color: #E6E6E6;
+    -fx-border-radius: 4px;
+    -fx-min-height: 36;
+    -fx-min-width: 128;
+}
+
+.login_text_field {
+    -fx-background-color: transparent;
+}

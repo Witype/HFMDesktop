@@ -1,0 +1,46 @@
+.selectable_background_black:hover {
+    -fx-background-color: #C3504C;
+}
+
+.selectable_background_black:pressed {
+    -fx-background-color: #AA4642;
+}
+
+/* 文字 - 灰色 */
+.selectable_text_gray {
+    -fx-text-fill: #757575;
+}
+
+.selectable_text_gray:hover {
+    -fx-text-fill: #F4645F;
+}
+
+.selectable_text_gray:pressed {
+    -fx-text-fill: #F4645F;
+}
+
+/* 文字 - 主题色 */
+.selectable_text_primary {
+    -fx-text-fill: #F4645F;
+}
+
+.selectable_text_primary:hover {
+    -fx-text-fill: #C3504C;
+}
+
+.selectable_text_primary:pressed {
+    -fx-text-fill: #AA4642;
+}
+
+/* 按钮 - 主题色 */
+.selectable_btn_primary {
+    -fx-background-color: #F4645F;
+}
+
+.selectable_btn_primary:hover {
+    -fx-background-color: #C3504C;
+}
+
+.selectable_btn_primary:pressed {
+    -fx-background-color: #AA4642;
+}

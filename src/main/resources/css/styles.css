@@ -1,0 +1,12 @@
+
+.infoContentLayout {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E6E6E6;
+    -fx-border-radius: 2px;
+    -fx-border-width: 1px;
+}
+
+.button_primary {
+    -fx-border-color: #F4645F;
+    -fx-border-radius: 4px;
+}

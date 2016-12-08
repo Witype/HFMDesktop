@@ -1,0 +1,19 @@
+.text_large {
+    -fx-font-size: 24pt;
+}
+
+.text_title {
+    -fx-font-size: 18pt;
+}
+
+.text_subtitle {
+    -fx-font-size: 16pt;
+}
+
+.text_content {
+    -fx-font-size: 12pt;
+}
+
+.text_secondary {
+    -fx-font-size: 10pt;
+}

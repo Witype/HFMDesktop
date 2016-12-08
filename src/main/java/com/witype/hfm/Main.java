@@ -20,10 +20,9 @@ public class Main extends Application implements EventHandler<MouseEvent> {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         setOnDraggedListener(root);
         Scene rootScene = new Scene(root);
-        root.getStylesheets().add("/css/style_title_bar.css");
         primaryStage.setTitle("Hello World");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(rootScene);
