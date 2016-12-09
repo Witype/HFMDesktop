@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import java.net.URL?>
-<HBox fx:id="loginRoot" stylesheets="@../css/style_login.css" styleClass="window_background"  minHeight="600.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.controller.LoginController">
+<HBox fx:id="loginRoot" stylesheets="@../css/style_login.css" styleClass="window_background"  minHeight="600.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.app.login.LoginController">
     <children>
         <VBox prefHeight="640.0" prefWidth="600.0" />
         <VBox fx:id="loginContent" alignment="CENTER" HBox.hgrow="ALWAYS">

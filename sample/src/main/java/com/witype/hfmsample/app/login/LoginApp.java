@@ -1,4 +1,4 @@
-package com.witype.hfmsample.app.about;
+package com.witype.hfmsample.app.login;
 
 import com.witype.hfmsample.app.App;
 

@@ -2,19 +2,16 @@ package com.witype.hfmsample.controller;
 
 import com.witype.hfmsample.app.about.AboutApp;
 import com.witype.hfmsample.app.App;
-import com.witype.hfmsample.app.about.LoginApp;
+import com.witype.hfmsample.app.login.LoginApp;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * Created by WiType on 2016/12/8.

@@ -1,5 +1,6 @@
-package com.witype.hfmsample.controller;
+package com.witype.hfmsample.app.login;
 
+import com.witype.hfmsample.controller.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
