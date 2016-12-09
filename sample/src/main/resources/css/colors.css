@@ -3,7 +3,7 @@
 }
 
 .primary_text {
-    -fx-background-color: #212121;
+    -fx-text-fill: #212121;
 }
 
 .secondary_text {
@@ -18,10 +18,19 @@
     -fx-background-color: #E6E6E6;
 }
 
+.window_background_gray {
+    -fx-background-color: #F7F7F7;
+}
+
 .text_color_white {
     -fx-text-fill: #FFFFFF;
+}
+
+.text_color_primary {
+    -fx-text-fill: #F4645F;
 }
 
 .background_white {
     -fx-background-color: #FFFFFF;
 }
+

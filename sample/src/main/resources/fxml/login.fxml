@@ -6,183 +6,108 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import java.net.URL?>
-<VBox fx:id="content" minHeight="600.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.controller.LoginController">
+<HBox fx:id="loginRoot" stylesheets="@../css/style_login.css" styleClass="window_background"  minHeight="600.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.controller.LoginController">
     <children>
-        <HBox fx:id="titleBarContent" alignment="CENTER_RIGHT" minHeight="30.0" prefWidth="1024.0" styleClass="primary">
+        <VBox prefHeight="640.0" prefWidth="600.0" />
+        <VBox fx:id="loginContent" alignment="CENTER" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets left="40.0" right="40.0" />
+            </HBox.margin>
             <children>
-                <StackPane fx:id="settingPane" onMouseClicked="#onSettingClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
-                    <children>
-                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/ic_window_setting.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </StackPane>
-                <StackPane onMouseClicked="#onAboutClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
-                    <children>
-                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/ic_window_about.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </StackPane>
-                <StackPane onMouseClicked="#onWindowMinClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
-                    <children>
-                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/ic_window_min.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </StackPane>
-                <StackPane fx:id="closePane" onMouseClicked="#onCloseClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
-                    <children>
-                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/ic_window_close.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </StackPane>
-            </children>
-        </HBox>
-        <HBox fx:id="headerContent" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="primary">
-            <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../image/ic_logo_large.png" />
-                    </image>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin>
-                </ImageView>
-                <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                    <children>
-                        <Label text="你好!">
-                            <styleClass>
-                                <String fx:value="text_color_white" />
-                                <String fx:value="text_title" />
-                            </styleClass>
-                        </Label>
-                        <Label text="请登录">
-                            <styleClass>
-                                <String fx:value="text_color_white" />
-                                <String fx:value="text_content" />
-                            </styleClass>
-                        </Label>
-                    </children>
+                <VBox>
+                    <styleClass>
+                        <String fx:value="loginBackground" />
+                        <String fx:value="background_white" />
+                    </styleClass>
                     <padding>
-                        <Insets right="20.0" />
+                        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                     </padding>
-                </VBox>
-            </children>
-        </HBox>
-        <HBox fx:id="infoContent" styleClass="window_background" stylesheets="@../css/style_login.css">
-            <children>
-                <VBox prefHeight="640.0" prefWidth="600.0" />
-                <VBox fx:id="loginContent" alignment="CENTER" HBox.hgrow="ALWAYS">
-                    <HBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                    </HBox.margin>
                     <children>
-                        <VBox>
-                            <styleClass>
-                                <String fx:value="loginBackground" />
-                                <String fx:value="background_white" />
-                            </styleClass>
-                            <padding>
-                                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-                            </padding>
+                        <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="200.0" styleClass="login_input">
                             <children>
-                                <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="200.0" styleClass="login_input">
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/ic_input_username.png" />
+                                    </image>
+                                </ImageView>
+                                <TextField fx:id="tf_username" promptText="请输入用户名" styleClass="login_text_field" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </TextField>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                            </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="200.0" styleClass="login_input">
+                            <children>
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/ic_input_password.png" />
+                                    </image>
+                                </ImageView>
+                                <PasswordField fx:id="tf_password" promptText="请输入密码" styleClass="login_text_field" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </PasswordField>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                            <children>
+                                <CheckBox fx:id="checkRemember" onMousePressed="#onRememberMeClick" mnemonicParsing="false" selected="true" text="记住我" />
+                                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../image/ic_input_username.png" />
-                                            </image>
-                                        </ImageView>
-                                        <TextField fx:id="tf_username" promptText="请输入用户名" styleClass="login_text_field" HBox.hgrow="ALWAYS">
-                                            <HBox.margin>
-                                                <Insets left="10.0" />
-                                            </HBox.margin>
-                                        </TextField>
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
-                                    </padding>
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="200.0" styleClass="login_input">
-                                    <children>
-                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../image/ic_input_password.png" />
-                                            </image>
-                                        </ImageView>
-                                        <PasswordField fx:id="tf_password" promptText="请输入密码" styleClass="login_text_field" HBox.hgrow="ALWAYS">
-                                            <HBox.margin>
-                                                <Insets left="10.0" />
-                                            </HBox.margin>
-                                        </PasswordField>
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
-                                    </padding>
-                                    <VBox.margin>
-                                        <Insets top="15.0" />
-                                    </VBox.margin>
-                                </HBox>
-                                <HBox prefWidth="200.0">
-                                    <VBox.margin>
-                                        <Insets top="15.0" />
-                                    </VBox.margin>
-                                    <children>
-                                        <CheckBox fx:id="checkRemember" onMousePressed="#onRememberMeClick" mnemonicParsing="false" selected="true" text="记住我" />
-                                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                            <children>
-                                                <Label fx:id="labelForget" onMouseClicked="#onForgetClick" styleClass="selectable_text_primary" text="忘记密码？" />
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </HBox>
-                                <HBox fx:id="btn_login" onMouseClicked="#onLoginClick" alignment="CENTER" prefHeight="36.0">
-                                    <VBox.margin>
-                                        <Insets top="15.0" />
-                                    </VBox.margin>
-                                    <styleClass>
-                                        <String fx:value="selectable_btn_primary" />
-                                        <String fx:value="button_primary" />
-                                    </styleClass>
-                                    <children>
-                                        <Label styleClass="text_color_white" text="登录" />
-                                    </children>
-                                </HBox>
-                                <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0">
-                                    <children>
-                                        <Label text="OR">
-                                            <styleClass>
-                                                <String fx:value="secondary_text" />
-                                                <String fx:value="text_content" />
-                                            </styleClass>
-                                        </Label>
-                                        <Label fx:id="labelRegister" onMouseClicked="#onRegisterClick" text="注册">
-                                            <padding>
-                                                <Insets left="10.0" />
-                                            </padding>
-                                            <styleClass>
-                                                <String fx:value="selectable_text_primary" />
-                                                <String fx:value="text_content" />
-                                            </styleClass>
-                                        </Label>
+                                        <Label fx:id="labelForget" onMouseClicked="#onForgetClick" styleClass="selectable_text_primary" text="忘记密码？" />
                                     </children>
                                 </HBox>
                             </children>
-                        </VBox>
+                        </HBox>
+                        <HBox fx:id="btn_login" onMouseClicked="#onLoginClick" alignment="CENTER" prefHeight="36.0">
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                            <styleClass>
+                                <String fx:value="selectable_btn_primary" />
+                                <String fx:value="button_primary" />
+                            </styleClass>
+                            <children>
+                                <Label styleClass="text_color_white" text="登录" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0">
+                            <children>
+                                <Label text="OR">
+                                    <styleClass>
+                                        <String fx:value="secondary_text" />
+                                        <String fx:value="text_content" />
+                                    </styleClass>
+                                </Label>
+                                <Label fx:id="labelRegister" onMouseClicked="#onRegisterClick" text="注册">
+                                    <padding>
+                                        <Insets left="10.0" />
+                                    </padding>
+                                    <styleClass>
+                                        <String fx:value="selectable_text_primary" />
+                                        <String fx:value="text_content" />
+                                    </styleClass>
+                                </Label>
+                            </children>
+                        </HBox>
                     </children>
                 </VBox>
             </children>
-        </HBox>
+        </VBox>
     </children>
     <stylesheets>
         <URL value="@../css/selectors.css" />
@@ -190,4 +115,4 @@
         <URL value="@../css/colors.css" />
         <URL value="@../css/dimens.css" />
     </stylesheets>
-</VBox>
+</HBox>

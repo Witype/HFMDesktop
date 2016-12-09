@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+<VBox fx:id="root" minHeight="768.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.controller.Controller">
+    <children>
+        <HBox fx:id="titleBarContent" alignment="CENTER_RIGHT" minHeight="30.0" prefWidth="1024.0" styleClass="primary">
+            <children>
+                <StackPane fx:id="settingPane" onMouseClicked="#onSettingClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
+                    <children>
+                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/ic_window_setting.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </StackPane>
+                <StackPane onMouseClicked="#onAboutClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
+                    <children>
+                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/ic_window_about.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </StackPane>
+                <StackPane onMouseClicked="#onWindowMinClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
+                    <children>
+                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/ic_window_min.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </StackPane>
+                <StackPane fx:id="closePane" onMouseClicked="#onCloseClick" prefHeight="30.0" prefWidth="30.0" styleClass="selectable_background_black">
+                    <children>
+                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/ic_window_close.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </StackPane>
+            </children>
+        </HBox>
+        <HBox fx:id="headerContent" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="primary">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/ic_logo_large.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="你好!">
+                            <styleClass>
+                                <String fx:value="text_color_white" />
+                                <String fx:value="text_title" />
+                            </styleClass>
+                        </Label>
+                        <Label text="请登录">
+                            <styleClass>
+                                <String fx:value="text_color_white" />
+                                <String fx:value="text_content" />
+                            </styleClass>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets right="20.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox fx:id="navigationContent" styleClass="primary">
+            <styleClass>
+                <String fx:value="navigation_height" />
+                <String fx:value="primary" />
+            </styleClass>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+        </HBox>
+        <StackPane fx:id="content" prefHeight="590.0" prefWidth="1024.0" />
+
+    </children>
+    <stylesheets>
+        <URL value="@../css/selectors.css" />
+        <URL value="@../css/styles.css" />
+        <URL value="@../css/colors.css" />
+        <URL value="@../css/dimens.css" />
+    </stylesheets>
+</VBox>

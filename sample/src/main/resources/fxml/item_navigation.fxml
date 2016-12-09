@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="24.0" prefWidth="100.0" styleClass="window_background" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <HBox minWidth="10.0" styleClass="primary" />
+        <HBox fx:id="navi_close" alignment="CENTER" prefHeight="24.0" prefWidth="24.0">
+            <children>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" styleClass="selectable_image_close" HBox.hgrow="ALWAYS" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+        <HBox fx:id="navi_choice" alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Label fx:id="navi_title" text="登录" HBox.hgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="text_secondary" />
+                  <String fx:value="selectable_text_gray" />
+               </styleClass></Label>
+            </children>
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+        </HBox>
+    </children>
+    <stylesheets>
+        <URL value="@../css/colors.css" />
+        <URL value="@../css/dimens.css" />
+        <URL value="@../css/selectors.css" />
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+</HBox>

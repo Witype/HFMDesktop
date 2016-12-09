@@ -17,3 +17,11 @@
 .text_secondary {
     -fx-font-size: 10pt;
 }
+
+.navigation_height {
+    -fx-min-height: 36;
+}
+
+.h_padding {
+    -fx-padding: 20,20,20,20;
+}

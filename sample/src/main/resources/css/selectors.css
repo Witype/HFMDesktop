@@ -19,6 +19,10 @@
     -fx-text-fill: #F4645F;
 }
 
+.selectable_text_gray:focused {
+    -fx-text-fill: #F4645F;
+}
+
 .selectable_text_gray:pressed {
     -fx-text-fill: #F4645F;
 }
@@ -29,6 +33,10 @@
 }
 
 .selectable_text_primary:hover {
+    -fx-text-fill: #C3504C;
+}
+
+.selectable_text_primary:focused {
     -fx-text-fill: #C3504C;
 }
 
@@ -47,4 +55,20 @@
 
 .selectable_btn_primary:pressed {
     -fx-background-color: #AA4642;
+}
+
+/* 图片 - 黑色 -> 主题色 */
+.selectable_image_close {
+    -fx-image: url("/image/ic_close_black.png");
+}
+
+.selectable_image_close:hover {
+    -fx-image: url("/image/ic_close_primary.png");
+}
+
+.selectable_image_close:pressed {
+    -fx-image: url("/image/ic_close_primary.png");
+}
+.selectable_image_close:focused {
+    -fx-image: url("/image/ic_close_primary.png");
 }
