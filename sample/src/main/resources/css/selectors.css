@@ -1,3 +1,7 @@
+/* 底色 - 主题色 */
+.selectable_background_black {
+    -fx-background-color: transparent;
+}
 .selectable_background_black:hover {
     -fx-background-color: #C3504C;
 }

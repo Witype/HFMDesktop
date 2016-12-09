@@ -1,4 +1,4 @@
-package com.witype.hfm;
+package com.witype.hfmsample;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;

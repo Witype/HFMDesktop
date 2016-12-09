@@ -1,4 +1,4 @@
-package com.witype.hfm.controller;
+package com.witype.hfmsample.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
@@ -11,7 +11,7 @@ import javafx.scene.layout.StackPane;
 class Controller {
 
     @FXML
-    StackPane closePane;
+    private StackPane closePane;
 
     @FXML
     protected void onCloseClick() {

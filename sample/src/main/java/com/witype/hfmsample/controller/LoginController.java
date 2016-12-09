@@ -1,12 +1,7 @@
-package com.witype.hfm.controller;
+package com.witype.hfmsample.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.layout.HBox;
-
-import java.awt.*;
-import java.net.URI;
 
 public class LoginController extends Controller {
 
