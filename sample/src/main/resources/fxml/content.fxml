@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import java.net.URL?>
-<VBox fx:id="root" minHeight="768.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.controller.Controller">
+<VBox fx:id="root" minHeight="768.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.controller.RootController">
     <children>
         <HBox fx:id="titleBarContent" alignment="CENTER_RIGHT" minHeight="30.0" prefWidth="1024.0" styleClass="primary">
             <children>

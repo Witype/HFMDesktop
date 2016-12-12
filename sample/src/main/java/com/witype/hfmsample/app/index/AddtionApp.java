@@ -1,22 +1,21 @@
-package com.witype.hfmsample.app.about;
+package com.witype.hfmsample.app.index;
 
 import com.witype.hfmsample.app.App;
 
 /**
- * Created by Typer_work on 2016/12/9.
+ * Created by Typer_work on 2016/12/12.
  * email:witype716@gmail.com
  * desc:
  */
-public class AboutApp extends App {
+public class AddtionApp extends App {
 
     @Override
     public String getPageName() {
-        return "关于";
+        return "添加项目";
     }
 
     @Override
     public String getFxml() {
-        return "about";
+        return "item_index_add";
     }
-
 }

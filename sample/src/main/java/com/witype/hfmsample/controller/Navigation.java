@@ -17,27 +17,27 @@ import java.util.Stack;
  * email:witype716@gmail.com
  * desc:
  */
-class Navigation  {
+public class Navigation  {
 
     private Stack<InnerNavigation> stack = new Stack<InnerNavigation>();
 
-    private Controller controller;
+    private RootController rootController;
 
     private NavigationViewHolder currentNavigation;
 
-    Navigation(Controller controller) {
-        this.controller = controller;
+    Navigation(RootController rootController) {
+        this.rootController = rootController;
     }
 
-    Parent addNavigation(App app) {
+    public Parent addNavigation(App app) {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("/fxml/item_navigation.fxml"));
             NavigationViewHolder holder = new NavigationViewHolder(parent);
             switchTop(holder);
-            InnerNavigation innerNavigation = new InnerNavigation(holder,app);
+            InnerNavigation innerNavigation = new InnerNavigation(holder, app);
             setCloseListener(innerNavigation,holder.close);
             setChoiceListener(innerNavigation,holder.choice);
-            holder.title.setText(app.getName());
+            holder.title.setText(app.getTitle());
             stack.push(innerNavigation);
             return parent;
         } catch (IOException e) {
@@ -56,28 +56,31 @@ class Navigation  {
         });
     }
 
+    public int getItemCount() {
+        return stack.size();
+    }
+
     private void setChoiceListener(final InnerNavigation innerNavigation, HBox hBox) {
         hBox.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getButton() != MouseButton.PRIMARY) return;
-                controller.topApp(innerNavigation.app);
+                rootController.topApp(innerNavigation.app);
                 switchTop(innerNavigation.navigation);
             }
         });
     }
 
     private void close(InnerNavigation innerNavigation) {
-        if (!innerNavigation.app.closeAble()) return;
-        controller.finishApp(innerNavigation.app);
-        controller.finishNavigation(innerNavigation.navigation.parent);
+        RootController.finishApp(innerNavigation.app);
+        rootController.finishNavigation(innerNavigation.navigation.parent);
         stack.remove(innerNavigation);
         showTop();
     }
 
-    public void closeByName(String name) {
+    public void closeByTitle(String name) {
         for (InnerNavigation innerNavigation : stack) {
-            if (innerNavigation.app.getName().equals(name)) {
+            if (innerNavigation.app.getTitle().equals(name)) {
                 close(innerNavigation);
                 break;
             }
@@ -95,7 +98,7 @@ class Navigation  {
     private void showTop() {
         if (stack.isEmpty()) return;
         InnerNavigation innerNavigation = stack.peek();
-        controller.topApp(innerNavigation.app);
+        rootController.topApp(innerNavigation.app);
         switchTop(innerNavigation.navigation);
     }
 

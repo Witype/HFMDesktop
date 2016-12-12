@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import java.net.URL?>
-<HBox fx:id="loginRoot" stylesheets="@../css/style_login.css" styleClass="window_background"  minHeight="600.0" minWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.app.login.LoginController">
+
+<HBox fx:id="loginRoot" minHeight="600.0" minWidth="1024.0" styleClass="window_background" stylesheets="@../css/style_login.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.app.login.LoginController">
     <children>
         <VBox prefHeight="640.0" prefWidth="600.0" />
         <VBox fx:id="loginContent" alignment="CENTER" HBox.hgrow="ALWAYS">
@@ -65,7 +67,7 @@
                                 <Insets top="15.0" />
                             </VBox.margin>
                             <children>
-                                <CheckBox fx:id="checkRemember" onMousePressed="#onRememberMeClick" mnemonicParsing="false" selected="true" text="记住我" />
+                                <CheckBox fx:id="checkRemember" mnemonicParsing="false" onMousePressed="#onRememberMeClick" selected="true" text="记住我" />
                                 <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                     <children>
                                         <Label fx:id="labelForget" onMouseClicked="#onForgetClick" styleClass="selectable_text_primary" text="忘记密码？" />
@@ -73,7 +75,7 @@
                                 </HBox>
                             </children>
                         </HBox>
-                        <HBox fx:id="btn_login" onMouseClicked="#onLoginClick" alignment="CENTER" prefHeight="36.0">
+                        <HBox fx:id="btn_login" alignment="CENTER" onMouseClicked="#onLoginClick" prefHeight="36.0">
                             <VBox.margin>
                                 <Insets top="15.0" />
                             </VBox.margin>
@@ -87,16 +89,22 @@
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0">
                             <children>
+                        <Label text="无帐号使用" onMouseClicked="#onLocalClick">
+                           <styleClass>
+                              <String fx:value="text_content" />
+                              <String fx:value="selectable_text_primary" />
+                           </styleClass>
+                        </Label>
                                 <Label text="OR">
                                     <styleClass>
                                         <String fx:value="secondary_text" />
                                         <String fx:value="text_content" />
                                     </styleClass>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
                                 </Label>
                                 <Label fx:id="labelRegister" onMouseClicked="#onRegisterClick" text="注册">
-                                    <padding>
-                                        <Insets left="10.0" />
-                                    </padding>
                                     <styleClass>
                                         <String fx:value="selectable_text_primary" />
                                         <String fx:value="text_content" />

@@ -10,6 +10,19 @@
     -fx-background-color: #AA4642;
 }
 
+/* 背景 - 白色 */
+.selectable_background_white {
+    -fx-background-color: #FFFFFF;
+}
+
+.selectable_background_white:hover {
+    -fx-background-color: #F2F2F2;
+}
+
+.selectable_background_white:pressed {
+    -fx-background-color: #F4F4F4;
+}
+
 /* 文字 - 灰色 */
 .selectable_text_gray {
     -fx-text-fill: #757575;
