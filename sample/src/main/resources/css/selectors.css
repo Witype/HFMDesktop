@@ -85,3 +85,37 @@
 .selectable_image_close:focused {
     -fx-image: url("/image/ic_close_primary.png");
 }
+
+/* 删除 - 黑色 -> 主题色 */
+.selectable_image_delete {
+    -fx-image: url("/image/ic_delete_black.png");
+}
+
+.selectable_image_delete:hover {
+    -fx-image: url("/image/ic_delete_red.png");
+}
+
+.selectable_image_delete:pressed {
+    -fx-image: url("/image/ic_delete_red.png");
+}
+.selectable_image_delete:focused {
+    -fx-image: url("/image/ic_delete_red.png");
+}
+
+/* 添加 - 黑色 -> 主题色 */
+.selectable_image_add {
+    -fx-image: url("/image/ic_add_black.png");
+}
+
+.selectable_image_add:hover {
+    -fx-image: url("/image/ic_add_red.png");
+}
+
+.selectable_image_add:pressed {
+    -fx-image: url("/image/ic_add_red.png");
+}
+.selectable_image_add:focused {
+    -fx-image: url("/image/ic_add_red.png");
+}
+
+

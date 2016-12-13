@@ -42,6 +42,7 @@ public class HListView<E extends ViewHolder> extends FlowPane {
         if (viewHolder == null) {
             viewHolder = adapter.onCreateViewHolder(adapter.getViewType(position));
             parents.add(viewHolder);
+            viewHolder.getParent().minWidth(getPrefWidth());
             getChildren().add(viewHolder.getParent());
         }
         adapter.onBindViewHolder(viewHolder,position);

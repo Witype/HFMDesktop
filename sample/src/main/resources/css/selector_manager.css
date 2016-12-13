@@ -1,0 +1,15 @@
+/* 添加 - 黑色 -> 主题色 */
+.selectable_image_manager {
+    -fx-image: url("/image/ic_manager_black.png");
+}
+
+.selectable_image_manager:hover {
+    -fx-image: url("/image/ic_manager_red.png");
+}
+
+.selectable_image_manager:pressed {
+    -fx-image: url("/image/ic_manager_red.png");
+}
+.selectable_image_manager:focused {
+    -fx-image: url("/image/ic_manager_red.png");
+}
