@@ -12,9 +12,26 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 
-<VBox onMouseClicked="#onAddClick" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="168.0" styleClass="selectable_background_white" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.app.index.IndexController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="168.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox alignment="CENTER" styleClass="selectable_background_white" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+      <children>
+         <ImageView fitHeight="56.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../image/ic_index_add.png" />
+            </image>
+         </ImageView>
+         <Label styleClass="secondary_text" text="添加应用">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+         </Label>
+      </children>
+    </VBox>
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
     <stylesheets>
         <URL value="@../css/colors.css" />
@@ -22,16 +39,4 @@
         <URL value="@../css/selectors.css" />
         <URL value="@../css/styles.css" />
     </stylesheets>
-   <children>
-      <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/ic_index_add.png" />
-         </image>
-      </ImageView>
-      <Label styleClass="secondary_text" text="添加应用">
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
-      </Label>
-   </children>
 </VBox>

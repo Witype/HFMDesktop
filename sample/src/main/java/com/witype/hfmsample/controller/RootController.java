@@ -1,18 +1,21 @@
 package com.witype.hfmsample.controller;
 
 import com.witype.hfmsample.app.App;
+import com.witype.hfmsample.app.LauncherMode;
 import com.witype.hfmsample.app.about.AboutApp;
-import com.witype.hfmsample.app.login.LoginApp;
-import com.witype.hfmsample.utils.config.Config;
+import com.witype.hfmsample.utils.config.Intent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.util.Comparator;
 
 /**
  * Created by WiType on 2016/12/8.
@@ -48,14 +51,6 @@ public class RootController implements EventHandler<MouseEvent> {
         setOnDraggedListener(root);
     }
 
-    public void launcher() {
-        if (Config.get().isLogin()) {
-            //TODO
-        } else {
-            startApp(new LoginApp());
-        }
-    }
-
     private void setOnDraggedListener(Scene root) {
         root.setOnMousePressed(this);
         root.setOnMouseDragged(this);
@@ -66,18 +61,45 @@ public class RootController implements EventHandler<MouseEvent> {
         navigationContent.setVisible(visible);
     }
 
-    public static void startApp(App app) {
-        if (rootController.currentShowParent == app.getNode()) return;
+    public static  void startApp(Intent intent) {
+        LauncherMode launcherMode = intent.getApp().getLauncherMode();
+        if (launcherMode == LauncherMode.DEFAULT) {
+            rootController.addAppToTop(intent);
+        } else if (launcherMode == LauncherMode.SINGLE_TOP) {
+            App appByTitle = rootController.navigation.findApp(intent.getApp());
+            if (appByTitle == null) {
+                rootController.addAppToTop(intent);
+            } else {
+                appByTitle.onNewIntent(intent);
+                rootController.navigation.top(appByTitle);
+                rootController.topApp(appByTitle);
+            }
+        }
+    }
+
+    private class NodeSort implements Comparator<Node> {
+
+        private App app;
+
+        public NodeSort(App app) {
+            this.app = app;
+        }
+
+        @Override
+        public int compare(Node o1, Node o2) {
+            return 1;
+        }
+    }
+
+    private void addAppToTop(Intent intent) {
+        App app = intent.getApp();
         rootController.content.getChildren().add(app.getNode());
         rootController.addNavigation(app);
+        app.onAppear(intent);
     }
 
-    public static void finishApp(App app) {
+    public static void finish(App app) {
         rootController.content.getChildren().remove(app.getNode());
-    }
-
-    public static void finish(Controller controller) {
-        rootController.navigation.closeByTitle(controller.getName());
     }
 
     public static int getItemCount() {
@@ -121,7 +143,7 @@ public class RootController implements EventHandler<MouseEvent> {
 
     @FXML
     protected void onAboutClick() throws Exception {
-        startApp(new AboutApp());
+        startApp(new Intent(AboutApp.class));
     }
 
     public String getName() {

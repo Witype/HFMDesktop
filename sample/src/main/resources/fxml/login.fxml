@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import java.net.URL?>
 
-<HBox fx:id="loginRoot" minHeight="600.0" minWidth="1024.0" styleClass="window_background" stylesheets="@../css/style_login.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witype.hfmsample.app.login.LoginController">
+<HBox fx:id="loginRoot" minHeight="600.0" minWidth="1024.0" styleClass="window_background" stylesheets="@../css/style_login.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" >
     <children>
         <VBox prefHeight="640.0" prefWidth="600.0" />
         <VBox fx:id="loginContent" alignment="CENTER" HBox.hgrow="ALWAYS">

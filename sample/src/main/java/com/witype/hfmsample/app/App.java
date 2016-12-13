@@ -1,6 +1,7 @@
 package com.witype.hfmsample.app;
 
-import com.witype.hfmsample.controller.Controller;
+import com.witype.hfmsample.controller.RootController;
+import com.witype.hfmsample.utils.config.Intent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -9,21 +10,36 @@ import javafx.scene.Parent;
  * email:witype716@gmail.com
  * desc:
  */
-public abstract class App<T extends Controller> {
+public abstract class App {
 
     private static String PREFIX = "/fxml/";
     private static String SUFFIX = ".fxml";
+    private Intent data;
 
     private Parent node;
 
     private String title;
 
-    private T controller;
-
     public abstract String getPageName();
+
+    public App() {
+        this.title = getPageName();
+    }
+
+    public App(String title) {
+        this.title = title;
+    }
+
+    public void onAppear(Intent intent) {}
+
+    public void onNewIntent(Intent intent) {}
 
     public String getTitle() {
         return title;
+    }
+
+    public LauncherMode getLauncherMode() {
+        return LauncherMode.DEFAULT;
     }
 
     public abstract String getFxml();
@@ -36,35 +52,26 @@ public abstract class App<T extends Controller> {
         return String.format("%s%s%s",PREFIX,getFxml(),SUFFIX);
     }
 
-    public T getController() {
-        return controller;
-    }
-
-    public App() {
-        this.title = getPageName();
-        init();
-    }
-
-    public App(String title) {
-        this.title = title;
-        init();
-    }
-
     private void init() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(generatePath()));
+            loader.setController(this);
             node = loader.load();
-            controller = loader.getController();
-            if (controller != null) {
-                controller.setName(getTitle());
-                controller.onAppear();
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public Parent getNode() {
+        if (node == null) init();
         return node;
+    }
+
+    public void startApp(Intent intent) {
+        RootController.startApp(intent);
+    }
+
+    public void finish() {
+        RootController.finish(this);
     }
 }

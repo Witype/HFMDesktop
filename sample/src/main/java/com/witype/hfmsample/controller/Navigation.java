@@ -72,7 +72,7 @@ public class Navigation  {
     }
 
     private void close(InnerNavigation innerNavigation) {
-        RootController.finishApp(innerNavigation.app);
+        RootController.finish(innerNavigation.app);
         rootController.finishNavigation(innerNavigation.navigation.parent);
         stack.remove(innerNavigation);
         showTop();
@@ -85,6 +85,23 @@ public class Navigation  {
                 break;
             }
         }
+    }
+
+    public void top(App app) {
+        for (InnerNavigation innerNavigation : stack) {
+            if (innerNavigation.app.getClass().getName().equals(app.getClass().getName())) {
+                switchTop(innerNavigation.navigation);
+            }
+        }
+    }
+
+    public App findApp(App app) {
+        for (InnerNavigation innerNavigation : stack) {
+            if (innerNavigation.app.getClass().getName().equals(app.getClass().getName())) {
+                return innerNavigation.app;
+            }
+        }
+        return null;
     }
 
     private void switchTop(NavigationViewHolder holder) {

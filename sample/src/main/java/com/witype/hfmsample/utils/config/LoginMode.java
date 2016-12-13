@@ -14,7 +14,8 @@ public enum LoginMode {
     private int key;
 
     LoginMode(String loginMode, int key) {
-
+        this.loginMode = loginMode;
+        this.key = key;
     }
 
     public String getLoginMode() {

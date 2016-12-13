@@ -1,6 +1,10 @@
 package com.witype.hfmsample.app;
 
+import com.witype.hfmsample.app.index.Index;
+import com.witype.hfmsample.app.login.LoginApp;
 import com.witype.hfmsample.controller.RootController;
+import com.witype.hfmsample.utils.config.Config;
+import com.witype.hfmsample.utils.config.Intent;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,10 +31,16 @@ public class Main extends Application {
 
     private void onCreate(Stage primaryStage,Scene rootScene) throws Exception {
         rootController.init(primaryStage,rootScene);
-        rootController.launcher();
+        launcher();
     }
 
-
+    private void launcher() {
+        if (Config.get().isLogin()) {
+            RootController.startApp(new Intent(Index.class));
+        } else {
+            RootController.startApp(new Intent(LoginApp.class));
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

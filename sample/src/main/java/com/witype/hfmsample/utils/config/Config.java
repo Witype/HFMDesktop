@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class Config {
 
-    static{
+    static {
         try {
             String temp = URLDecoder.decode(Config.class.getProtectionDomain().getCodeSource().getLocation().getFile(), "UTF-8");
             path = temp.substring(1, temp.lastIndexOf('/'));
@@ -36,11 +36,13 @@ public class Config {
     public Config() {
         configFile = new File("e://temp//");
         if (!configFile.exists()) configFile.mkdirs();
-        configFile = new File(configFile,CONFIG_FILE_NAME);
-        if (!configFile.exists()) try {
-            configFile.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
+        configFile = new File(configFile, CONFIG_FILE_NAME);
+        if (!configFile.exists()) {
+            try {
+                configFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -48,11 +50,11 @@ public class Config {
         return config;
     }
 
-    public void store(String key,String value) {
-        store(key,value,null);
+    public void store(String key, String value) {
+        store(key, value, null);
     }
 
-    public void store(String key,String value,String comment) {
+    public void store(String key, String value, String comment) {
         try {
             properties.setProperty(key, value);
             saveProperties(comment);
@@ -62,13 +64,13 @@ public class Config {
     }
 
     public boolean isLogin() {
-        return load(ConfigConstant.CONFIG_LOGIN_MODE,"GUEST").equals(LoginMode.GUEST.getLoginMode());
+        return !load(ConfigConstant.CONFIG_LOGIN_MODE, "GUEST").equals(LoginMode.GUEST.getLoginMode());
     }
 
     @SuppressWarnings("all")
-    public <T> T load(String key,T def) {
+    public <T> T load(String key, T def) {
         try {
-            InputStream in = new BufferedInputStream (new FileInputStream(configFile));
+            InputStream in = new BufferedInputStream(new FileInputStream(configFile));
             properties.load(in);     ///加载属性列表
             String property = properties.getProperty(key);
             in.close();
