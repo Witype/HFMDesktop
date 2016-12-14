@@ -1,10 +1,10 @@
 package com.witype.hfmsample.utils.config;
 
-import com.witype.hfmsample.entity.Project;
+import com.witype.hfmsample.utils.LoginMode;
+import com.witype.hfmsample.utils.constant.ConfigConstant;
 
 import java.io.*;
 import java.net.URLDecoder;
-import java.util.ArrayList;
 import java.util.Properties;
 
 /**

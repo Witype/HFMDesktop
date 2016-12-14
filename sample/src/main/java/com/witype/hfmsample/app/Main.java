@@ -4,7 +4,7 @@ import com.witype.hfmsample.app.index.Index;
 import com.witype.hfmsample.app.login.LoginApp;
 import com.witype.hfmsample.controller.RootController;
 import com.witype.hfmsample.utils.config.Config;
-import com.witype.hfmsample.utils.config.Intent;
+import com.witype.hfmsample.utils.Intent;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

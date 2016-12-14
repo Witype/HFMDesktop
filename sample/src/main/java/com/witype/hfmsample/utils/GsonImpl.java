@@ -1,4 +1,4 @@
-package com.witype.hfmsample.utils.config;
+package com.witype.hfmsample.utils;
 
 import com.google.gson.Gson;
 

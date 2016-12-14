@@ -1,4 +1,4 @@
-package com.witype.hfmsample.view;
+package com.witype.hfmsample.compon;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

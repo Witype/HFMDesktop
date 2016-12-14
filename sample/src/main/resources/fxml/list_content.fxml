@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <?import java.net.URL?>
-<?import com.witype.hfmsample.view.HListView?>
+<?import com.witype.hfmsample.compon.HListView?>
 
 
 <HListView fx:id="list_content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="window_background" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">

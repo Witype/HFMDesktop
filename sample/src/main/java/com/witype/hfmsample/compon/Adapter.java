@@ -1,4 +1,4 @@
-package com.witype.hfmsample.view;
+package com.witype.hfmsample.compon;
 
 /**
  * Created by Typer_work on 2016/12/13.

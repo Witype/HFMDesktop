@@ -1,4 +1,4 @@
-package com.witype.hfmsample.view;
+package com.witype.hfmsample.compon;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -29,13 +29,25 @@ public abstract class BaseAdapter<T,E extends ViewHolder> extends Adapter<E> {
         data.add(t);
     }
 
+    public BaseAdapter addItem(ArrayList<T> t) {
+        if (data == null) data = new ArrayList<T>(0);
+        data.addAll(t);
+        return this;
+    }
+
+    public BaseAdapter clear() {
+        if (data != null) data.clear();
+        return this;
+    }
+
     @Override
     public int getItemCount() {
         return data == null ? 0 : data.size();
     }
 
-    public void setData(ArrayList<T> data) {
+    public BaseAdapter setData(ArrayList<T> data) {
         this.data = data;
+        return this;
     }
 
     public void setOnItemClickListener(OnItemClickListener<T> onItemClickListener) {

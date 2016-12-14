@@ -1,4 +1,4 @@
-package com.witype.hfmsample.utils.config;
+package com.witype.hfmsample.utils.constant;
 
 /**
  * Created by Typer_work on 2016/12/12.
@@ -9,4 +9,5 @@ public class ConfigConstant {
 
     public static final String CONFIG_LOGIN_MODE = "CONFIG_LOGIN_MODE";
     public static final String CONFIG_PROJECT = "CONFIG_PROJECT";
+    public static final String CONFIG_CHANNEL = "CONFIG_CHANNEL";
 }

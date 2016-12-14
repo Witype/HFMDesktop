@@ -1,10 +1,11 @@
 package com.witype.hfmsample.app.channel;
 
 import com.witype.easyamigo.Flavor;
-import com.witype.hfmsample.view.BaseAdapter;
-import com.witype.hfmsample.view.OnItemClickListener;
-import com.witype.hfmsample.view.ViewHolder;
+import com.witype.hfmsample.compon.BaseAdapter;
+import com.witype.hfmsample.compon.OnItemClickListener;
+import com.witype.hfmsample.compon.ViewHolder;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -22,9 +23,8 @@ public class ChannelAdapter extends BaseAdapter<Flavor,ChannelAdapter.ChannelVie
         return "item_channel";
     }
 
-    @Override
-    public void setOnItemClickListener(OnItemClickListener<Flavor> onItemClickListener) {
-        super.setOnItemClickListener(onItemClickListener);
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -56,6 +56,8 @@ public class ChannelAdapter extends BaseAdapter<Flavor,ChannelAdapter.ChannelVie
                 }
             });
         }
+        holder.name.setText(flavor.flavorName);
+        holder.desc.setText(flavor.desc);
     }
 
     static class ChannelViewHolder extends ViewHolder {
@@ -63,12 +65,16 @@ public class ChannelAdapter extends BaseAdapter<Flavor,ChannelAdapter.ChannelVie
         VBox add;
         VBox manager;
         VBox delete;
+        Label name;
+        Label desc;
 
-        public ChannelViewHolder(String fxml) {
+        ChannelViewHolder(String fxml) {
             super(fxml);
             add = (VBox) getParent().lookup("#add");
             manager = (VBox) getParent().lookup("#manager");
             delete = (VBox) getParent().lookup("#delete");
+            name = (Label) getParent().lookup("#name");
+            desc = (Label) getParent().lookup("#desc");
         }
     }
 

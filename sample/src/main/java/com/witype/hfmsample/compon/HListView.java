@@ -1,4 +1,4 @@
-package com.witype.hfmsample.view;
+package com.witype.hfmsample.compon;
 
 import javafx.scene.layout.FlowPane;
 
@@ -22,12 +22,13 @@ public class HListView<E extends ViewHolder> extends FlowPane {
     }
 
     public void notifyDataSetChange() {
-        if (adapter == null) return;
+        if (adapter == null ) return;
         int count = adapter.getItemCount();
         int changed = parents.size() - count;
         if (changed > 0) {
             for (int i = changed,last = parents.size() - 1; i > 0; i--,last--) {
                 getChildren().remove(last);
+                parents.remove(last);
             }
         }
         for (int i = 0; i < count; i++) {

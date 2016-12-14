@@ -3,7 +3,7 @@ package com.witype.hfmsample.controller;
 import com.witype.hfmsample.app.App;
 import com.witype.hfmsample.app.LauncherMode;
 import com.witype.hfmsample.app.about.AboutApp;
-import com.witype.hfmsample.utils.config.Intent;
+import com.witype.hfmsample.utils.Intent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;

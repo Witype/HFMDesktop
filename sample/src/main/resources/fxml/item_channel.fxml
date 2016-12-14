@@ -20,8 +20,8 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="30.0">
                      <children>
-                        <Label styleClass="text_title" text="Origin" />
-                        <Label text="公司">
+                        <Label fx:id="name" styleClass="text_title" text="Origin" />
+                        <Label fx:id="desc" text="公司">
                            <padding>
                               <Insets left="20.0" />
                            </padding>

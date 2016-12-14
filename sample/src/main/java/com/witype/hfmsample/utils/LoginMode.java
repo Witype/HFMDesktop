@@ -1,4 +1,4 @@
-package com.witype.hfmsample.utils.config;
+package com.witype.hfmsample.utils;
 
 /**
  * Created by Typer_work on 2016/12/12.

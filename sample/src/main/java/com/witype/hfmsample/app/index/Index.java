@@ -3,10 +3,16 @@ package com.witype.hfmsample.app.index;
 import com.google.gson.reflect.TypeToken;
 import com.witype.hfmsample.app.App;
 import com.witype.hfmsample.app.channel.ChannelApp;
+import com.witype.hfmsample.contract.ProjectContract;
 import com.witype.hfmsample.entity.Project;
+import com.witype.hfmsample.utils.constant.BundleConstant;
+import com.witype.hfmsample.utils.GsonImpl;
+import com.witype.hfmsample.utils.Intent;
 import com.witype.hfmsample.utils.config.*;
-import com.witype.hfmsample.view.HListView;
-import com.witype.hfmsample.view.OnItemClickListener;
+import com.witype.hfmsample.utils.constant.ConfigConstant;
+import com.witype.hfmsample.compon.HListView;
+import com.witype.hfmsample.compon.OnItemClickListener;
+import com.witype.hfmsample.view.IView;
 import javafx.fxml.FXML;
 import rx.Observable;
 import rx.Subscriber;
@@ -20,13 +26,52 @@ import java.util.ArrayList;
  * email:witype716@gmail.com
  * desc:
  */
-public class Index extends App implements OnItemClickListener<Project> {
+
+interface IIndexView extends IView,ProjectContract.IProjectView ,IndexAdapter.OnFooterClickListener {
+
+}
+
+public class Index extends App<IIndexPresenter> implements OnItemClickListener<Project> , IIndexView {
 
     @FXML
     private
     HListView list_content;
 
     private IndexAdapter indexAdapter;
+
+    @Override
+    public IndexPresenter initPresenter() {
+        return new IndexPresenter(this);
+    }
+
+    @Override
+    public void onAppear(Intent intent) {
+        super.onAppear(intent);
+        indexAdapter = new IndexAdapter();
+        indexAdapter.setOnItemClickListener(this);
+        list_content.setAdapter(indexAdapter);
+        getPresenter().doGetProject();
+    }
+
+    @Override
+    public void onGetProject(ArrayList<Project> projects) {
+        indexAdapter.addItem(projects);
+        indexAdapter.addItem(new Project());
+        indexAdapter.notifyDataSetChange();
+    }
+
+    @Override
+    public void onClick(Project item, int position) {
+        Intent intent = new Intent(ChannelApp.class);
+        intent.put(BundleConstant.WORK_SPACE,item.getPath());
+        intent.put(BundleConstant.APP_KEY,item.getAppKey());
+        startApp(intent);
+    }
+
+    @Override
+    public void onClick() {
+
+    }
 
     @Override
     public String getPageName() {
@@ -41,69 +86,6 @@ public class Index extends App implements OnItemClickListener<Project> {
     @Override
     public boolean closeAble() {
         return false;
-    }
-
-    @Override
-    public void onAppear(Intent intent) {
-        super.onAppear(intent);
-        String json = Config.get().load(ConfigConstant.CONFIG_PROJECT,null);
-        indexAdapter = new IndexAdapter();
-        indexAdapter.setOnItemClickListener(this);
-        list_content.setAdapter(indexAdapter);
-        addProject(json);
-        addCreateContent();
-    }
-
-
-    private void addProject(String json) {
-        Observable.just(json)
-                .filter(new Func1<String, Boolean>() {
-                    @Override
-                    public Boolean call(String s) {
-                        return s != null;
-                    }
-                })
-                .flatMap(new Func1<String, Observable<Project>>() {
-                    @Override
-                    public Observable<Project> call(String s) {
-                        Type type = new TypeToken<ArrayList<Project>>() {}.getType();
-                        ArrayList<Project> projects = GsonImpl.get().toObject(s,type);
-                        return Observable.from(projects);
-                    }
-                })
-                .subscribe(new Subscriber<Project>() {
-                    @Override
-                    public void onCompleted() {
-                        indexAdapter.notifyDataSetChange();
-                    }
-
-                    @Override
-                    public void onError(Throwable throwable) {
-
-                    }
-
-                    @Override
-                    public void onNext(Project project) {
-                        indexAdapter.addItem(project);
-                        indexAdapter.addItem(project);
-                    }
-                });
-    }
-
-    private void addCreateContent() {
-
-    }
-
-    @Override
-    public void onClick(Project item, int position) {
-        Intent intent = new Intent(ChannelApp.class);
-        intent.put(BundleConstant.WORK_SPACE,item.getPath());
-        startApp(intent);
-    }
-
-    @FXML
-    protected void onAddClick() {
-
     }
 
 }
